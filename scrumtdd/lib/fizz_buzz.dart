@@ -6,24 +6,38 @@ library scrumtdd;
 
 class FizzBuzz{
   
+  String resultado;
+  
+  static const int RESULTADO_RESIDUO = 0;
+  
+  static const int MULTIPLO_3 = 3;
+  
+  static const int MULTIPLO_5 = 5;
+  
+  static const String RESULTADO_FIZZ = "fizz";
+  
+  static const String RESULTADO_BUZZ = "buzz";
+  
+  static const String RESULTADO_FIZZ_BUZZ = "fizz buzz";
+  
 String obtenerResultado(int numero){
   
-  String resultado = "";
+    resultado = "";
   
-  if((numero%3==0) && (numero%5==0)){
+  if((numero%MULTIPLO_3==RESULTADO_RESIDUO) && (numero%MULTIPLO_5==RESULTADO_RESIDUO)){
     
-    resultado = "fizz buzz";
+    resultado = RESULTADO_FIZZ_BUZZ;
     
   }
     
-  else if(numero%3==0){
+  else if(numero%MULTIPLO_3==RESULTADO_RESIDUO){
   
-    resultado = "fizz";
+    resultado = RESULTADO_FIZZ;
     
   }
-  else if(numero%5==0){
+  else if(numero%MULTIPLO_5==RESULTADO_RESIDUO){
    
-     resultado = "buzz";
+     resultado = RESULTADO_BUZZ;
      
    }
   else{
