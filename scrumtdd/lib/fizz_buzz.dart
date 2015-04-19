@@ -4,49 +4,46 @@
 /// The scrumtdd library.
 library scrumtdd;
 
+import 'utils/utilities.dart';
+
 class FizzBuzz{
   
-  String resultado;
-  
-  static const int RESULTADO_RESIDUO = 0;
-  
-  static const int MULTIPLO_3 = 3;
-  
-  static const int MULTIPLO_5 = 5;
-  
-  static const String RESULTADO_FIZZ = "fizz";
-  
-  static const String RESULTADO_BUZZ = "buzz";
-  
-  static const String RESULTADO_FIZZ_BUZZ = "fizz buzz";
+String resultado;
+
+FizzBuzz(){
+ 
+  resultado = "";
+
+}
   
 String obtenerResultado(int numero){
   
-    resultado = "";
+return determinarResultado(numero);
+
+}
+
+String determinarResultado(int numero){
   
-  if((numero%MULTIPLO_3==RESULTADO_RESIDUO) && (numero%MULTIPLO_5==RESULTADO_RESIDUO)){
-    
-    resultado = RESULTADO_FIZZ_BUZZ;
-    
-  }
-    
-  else if(numero%MULTIPLO_3==RESULTADO_RESIDUO){
-  
-    resultado = RESULTADO_FIZZ;
-    
-  }
-  else if(numero%MULTIPLO_5==RESULTADO_RESIDUO){
+   return esMultiplo3Y5(numero);
    
-     resultado = RESULTADO_BUZZ;
-     
-   }
-  else{
-    
-    resultado = numero.toString();
+}
+
+String esMultiplo3Y5(int numero){
+  return esMultiplo(numero, MULTIPLO_3) && esMultiplo(numero, MULTIPLO_5) ? resultado = RESULTADO_FIZZ_BUZZ : esMultiplo3(numero);
+}
+
+String esMultiplo3(int numero){
+ return esMultiplo(numero, MULTIPLO_3) ?  resultado = RESULTADO_FIZZ : esMultiplo5(numero);
+}
+
+String esMultiplo5(int numero){
+ return esMultiplo(numero, MULTIPLO_5) ? resultado = RESULTADO_BUZZ : resultado = numero.toString();
+}
+
+bool esMultiplo(int numero, int multiplo){
   
-  }
+return numero%multiplo==RESULTADO_RESIDUO ? true : false;
   
-  return resultado;
 }
 
 }
