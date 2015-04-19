@@ -5,6 +5,7 @@ library scrumtdd_test;
 
 import '../lib/fizz_buzz.dart';
 import 'package:unittest/unittest.dart';
+import 'utils/utilities.dart';
 
 void main() => defineTests();
 
@@ -12,53 +13,49 @@ FizzBuzz fizzBuzz;
 
 String resultado;
 
+List <String> listadoValoresActualesProcesados;
+
+
 void defineTests(){
 
-  group('main tests', () {
+  group(NOMBRE_GRUPO_PRUEBAS, () {
     setUp(testFizzBuzz);
+    
     testFizzBuzz();
   });
 }
 
 
 setUp(testFizzBuzz()){
-  
+
   fizzBuzz = new FizzBuzz();
+  
+  resultado = "";
+ 
+  listadoValoresActualesProcesados = [];
   
 }
 
+
 void testFizzBuzz(){
 
-  test('FizzBuzz', () {
-  
-  resultado = fizzBuzz.obtenerResultado(1);
-  
-  expect(resultado, "1");
-  
-  });
-  
-  test('FizzBuzz retorna multiplo 3 fizz', () {
-  
-  resultado = fizzBuzz.obtenerResultado(3);
-  
-  expect(resultado, "fizz");
+  test(NOMBRE_CASO_PRUEBA_FIZZBUZZ, () {
+    
+  llenarListadoValoresActuales();
+    
+  expect(listadoValoresActualesProcesados,VALORES_ESPERADOS_PRUEBA_FIZZ_BUZZ);
   
   });
   
-  test('FizzBuzz retorna multiplo 5 buzz', () {
-  
-  resultado = fizzBuzz.obtenerResultado(5);
-  
-  expect(resultado, "buzz");
-  
-  });
-  
-  test('FizzBuzz retorna multiplo 3 y 5 fizz buzz', () {
-  
-  resultado = fizzBuzz.obtenerResultado(15);
-  
-  expect(resultado, "fizz buzz");
-  
-  });
+}
 
+
+void llenarListadoValoresActuales(){
+  
+  for(int valorActual in VALORES_ACTUALES_PRUEBA_FIZZ_BUZZ)
+    {
+    resultado = fizzBuzz.obtenerResultado(valorActual);
+    listadoValoresActualesProcesados.add(resultado);
+    }
+  
 }
