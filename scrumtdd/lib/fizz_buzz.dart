@@ -7,7 +7,32 @@ library scrumtdd;
 class FizzBuzz{
   
 String obtenerResultado(int numero){
-  return numero.toString();
+  
+  String resultado = "";
+  
+  if((numero%3==0) && (numero%5==0)){
+    
+    resultado = "fizz buzz";
+    
+  }
+    
+  else if(numero%3==0){
+  
+    resultado = "fizz";
+    
+  }
+  else if(numero%5==0){
+   
+     resultado = "buzz";
+     
+   }
+  else{
+    
+    resultado = numero.toString();
+  
+  }
+  
+  return resultado;
 }
 
 }

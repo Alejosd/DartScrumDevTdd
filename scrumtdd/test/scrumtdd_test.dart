@@ -25,5 +25,35 @@ void testFizzBuzz(){
   expect(resultado, "1");
   
   });
+  
+  test('FizzBuzz retorna multiplo 3 fizz', () {
+       
+  FizzBuzz fizzBuzz = new FizzBuzz();
+  
+  String resultado = fizzBuzz.obtenerResultado(3);
+  
+  expect(resultado, "fizz");
+  
+  });
+  
+  test('FizzBuzz retorna multiplo 5 buzz', () {
+       
+  FizzBuzz fizzBuzz = new FizzBuzz();
+  
+  String resultado = fizzBuzz.obtenerResultado(5);
+  
+  expect(resultado, "buzz");
+  
+  });
+  
+  test('FizzBuzz retorna multiplo 3 y 5 fizz buzz', () {
+       
+  FizzBuzz fizzBuzz = new FizzBuzz();
+  
+  String resultado = fizzBuzz.obtenerResultado(15);
+  
+  expect(resultado, "fizz buzz");
+  
+  });
 
 }
